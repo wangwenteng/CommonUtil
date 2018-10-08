@@ -536,12 +536,29 @@ public class StringUtils {
 	 * @return
 	 */
 	public static boolean regexStr(String str) {
-		String regex = "[a-zA-Z0-9\u4E00-\u9FA5_]+";
+		String regex = "[\\sa-zA-Z0-9\u4E00-\u9FA5_]+";
 		Pattern pattern = Pattern.compile(regex);
-		Matcher match = pattern.matcher(str);
+		Matcher match = pattern.matcher(str.trim());
 		boolean b = match.matches();
 		return b;
 	}
+
+	public static boolean regexName(String str) {
+		String regex = "[\\s\\(（\\)）a-zA-Z0-9\u4E00-\u9FA5_\\.-]+";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher match = pattern.matcher(str.trim());
+		boolean b = match.matches();
+		return b;
+	}
+
+	public static boolean regexDateStr(String str) {
+		String regex = "(\\d){4}\\-(\\d){2}\\-(\\d){2}";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher match = pattern.matcher(str.trim());
+		boolean b = match.matches();
+		return b;
+	}
+
 	public static void main(String[] args) {
 		System.out.println(isNum("a"));
 		System.out.println(isNum("-1"));
@@ -550,5 +567,10 @@ public class StringUtils {
 		System.out.println(isNum("1.a"));
 		System.out.println(isLong("014650"));
 		System.out.println(Long.parseLong("014650"));
+		System.out.println(regexStr("a  "));
+	}
+
+	public static boolean isEmptyArray(Object[] array) {
+		return (array == null || array.length == 0);
 	}
 }
