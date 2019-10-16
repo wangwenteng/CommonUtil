@@ -1,14 +1,35 @@
-package com.wwt.commonUtil.util;
+package com.wwt.commonUtil.util.stringExt;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringUtils {
+/**
+ *
+ * Created by zd.yao on 2017/6/28.
+ */
+public class StringUtil {
+    //region string to byte 不要使用Utf-8，要使用ISO-8859-1编码，不然后fst 序列化时会所错
+    public static byte[] stringToByte(String str){
+        try {
+            return str.getBytes("ISO-8859-1");
+        } catch (UnsupportedEncodingException e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
+    public static String byteToString(byte[] bt){
+        try {
+            return new String(bt,"ISO-8859-1");
+        } catch (UnsupportedEncodingException e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
+
 	public static String getToken() {
 		return UUID.randomUUID().toString().replace("-", "");
 	}
@@ -169,6 +190,7 @@ public class StringUtils {
 
 	/**
 	 * 按字节截取字符串
+	 * 
 	 * @param len
 	 */
 	private static String subStringByByte(Object o, int len) {
@@ -559,7 +581,30 @@ public class StringUtils {
 		return b;
 	}
 
+	public static boolean isEmptyArray(Object[] array) {
+		return (array == null || array.length == 0);
+	}
+
+	/**
+	 * Numeric Character Reference 与 中文 互转
+	 * 
+	 * @param src
+	 * @return
+	 */
+	public static String unescape(String src) {
+		Pattern pattern = Pattern.compile("&#.*?;");
+		Matcher matcher = pattern.matcher(src);
+		StringBuilder sb = new StringBuilder();
+		while (matcher.find()) {
+			String group = matcher.group();
+			int codePoint = Integer.parseInt(group.replaceAll("(&#|;)", ""));
+			sb.append((char) codePoint);
+		}
+		return sb.toString();
+	}
+
 	public static void main(String[] args) {
+		System.out.println(unescape("&#20142;&#20142;&#27979;&#35797;"));
 		System.out.println(isNum("a"));
 		System.out.println(isNum("-1"));
 		System.out.println(isNum("01"));
@@ -570,7 +615,4 @@ public class StringUtils {
 		System.out.println(regexStr("a  "));
 	}
 
-	public static boolean isEmptyArray(Object[] array) {
-		return (array == null || array.length == 0);
-	}
 }

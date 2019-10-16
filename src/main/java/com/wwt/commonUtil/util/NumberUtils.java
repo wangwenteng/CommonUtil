@@ -1,5 +1,8 @@
 package com.wwt.commonUtil.util;
 
+
+import com.wwt.commonUtil.util.stringExt.StringUtils;
+
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
 
@@ -11,7 +14,7 @@ public class NumberUtils {
      * @return 
      */  
     public static boolean isInteger(Object value) {
-        if (StringUtils.isEmpty(value)) {  
+        if (StringUtils.isEmpty(value)) {
             return false;  
         }  
         String mstr = value.toString();  

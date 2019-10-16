@@ -1,4 +1,4 @@
-package com.wwt.commonUtil.util;
+package com.wwt.commonUtil.util.dateExt;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

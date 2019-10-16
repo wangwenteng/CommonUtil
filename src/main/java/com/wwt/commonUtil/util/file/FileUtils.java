@@ -1,4 +1,7 @@
-package com.wwt.commonUtil.util;
+package com.wwt.commonUtil.util.file;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,6 +10,7 @@ import java.io.IOException;
  * 文件操作工具类
  */
 public class FileUtils {
+    private static final Logger log = LoggerFactory.getLogger(FileUtils.class);
     /**
      * 创建目录和文件
      *
@@ -89,4 +93,48 @@ public class FileUtils {
 
         return size;
     }
+
+
+//    // 链接url下载图片
+//	public static String saveImageForUri(String uri, String filePath, HttpServletRequest request) {
+//        String num = UUID.randomUUID().toString();
+//		String pathName = filePath + "/" + num + ".jpg";
+//        String path = request.getSession().getServletContext().getRealPath("/") + pathName;
+//        FileOutputStream fileOutputStream = null;
+//        DataInputStream dataInputStream = null;
+//        try {
+//            Request.Builder builder = new Request.Builder().url(uri);
+//            Call call = new OkHttpClient().newCall(builder.build());
+//            Response response = call.execute();
+//            InputStream in = response.body().byteStream();
+//            dataInputStream = new DataInputStream(in);
+//
+//            fileOutputStream = new FileOutputStream(new File(path));
+//            ByteArrayOutputStream output = new ByteArrayOutputStream();
+//
+//            byte[] buffer = new byte[1024];
+//            int length;
+//
+//            while ((length = dataInputStream.read(buffer)) > 0) {
+//                output.write(buffer, 0, length);
+//            }
+//            fileOutputStream.write(output.toByteArray());
+//        } catch (MalformedURLException e) {
+//            log.info("图片无法访问");
+//        } catch (IOException e) {
+//            log.info("io异常");
+//        } finally {
+//            try {
+//                dataInputStream.close();
+//            } catch (IOException e) {
+//                log.info("断开连接失败");
+//            }
+//            try {
+//                fileOutputStream.close();
+//            } catch (IOException e) {
+//                log.info("断开连接失败");
+//            }
+//        }
+//        return pathName;
+//    }
 }

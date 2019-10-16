@@ -1,4 +1,4 @@
-package com.wwt.commonUtil.util;
+package com.wwt.commonUtil.util.uuid;
 
 import java.util.UUID;
 
