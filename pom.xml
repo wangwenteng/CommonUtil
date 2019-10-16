@@ -70,7 +70,7 @@
         <dependency>
             <groupId>com.github.junrar</groupId>
             <artifactId>junrar</artifactId>
-            <version>0.7</version>
+            <version>1.0.1</version>
         </dependency>
         <!-- 7Z解压包 -->
         <dependency>
@@ -105,7 +105,7 @@
         <dependency>
             <groupId>com.github.junrar</groupId>
             <artifactId>junrar</artifactId>
-            <version>0.7</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.sun.mail</groupId>
