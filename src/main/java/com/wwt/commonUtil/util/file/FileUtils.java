@@ -137,4 +137,26 @@ public class FileUtils {
 //        }
 //        return pathName;
 //    }
+
+    /**
+     * 递归遍历
+     * @param file
+     */
+    public static void getAllFiles(File file){
+        for (File f : file.listFiles()){
+            if(f.isDirectory()){
+                System.out.println(f.getAbsolutePath());
+                getAllFiles(f);
+            }else{
+                if(f.getName().endsWith(".java")){
+                    System.out.println(f.getName());
+                }
+
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        getAllFiles(new File("D:\\Program Files\\JetBrains\\IntelliJ IDEA 2018.3.4\\workspace_work\\anfang1.3\\"));
+    }
 }
