@@ -53,7 +53,7 @@ public class IdCard {
      * @return 处理完成的身份证
      */
     public static String nameMask(String name) {
-        String result ;
+        String result;
         if (name.length() <= 1) {
             result = "*";
         } else {
@@ -67,7 +67,8 @@ public class IdCard {
                 }
                 result = name.replaceAll("([\\u4e00-\\u9fa5]+[·•])(.*)", "$1" + createAsterisk(replaceLength));
             } else {
-                result = name.replaceAll("([\\u4e00-\\u9fa5]{1})(.*)", "$1" + createAsterisk(name.length() - 1));
+                replaceLength = 1;
+                result = name.replaceAll("([\\u4e00-\\u9fa5]{1})([\\u4e00-\\u9fa5]{"+replaceLength+"})",  createAsterisk(replaceLength)+"$2");
             }
         }
         return result;
