@@ -5,6 +5,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 /**
  * 文件操作工具类
@@ -183,6 +187,8 @@ public class FileUtils {
         File sourceFile = new File(sourceFileFullName);
         if (sourceFile.exists() && sourceFile.isFile()) {
             File file = new File(targetFileFullName);
+            Path path = Paths.get(targetFileFullName);
+            path.isAbsolute();
             //源文件移动至目标文件目录
             if (sourceFile.renameTo(file)) {
                 System.out.println("File is moved successful!");//输出移动成功
