@@ -1,7 +1,8 @@
 package com.wwt.commonUtil.test;
 
 
-import com.sun.deploy.util.StringUtils;
+
+import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
