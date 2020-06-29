@@ -60,10 +60,11 @@ public class FileBase64ConvertUitl {
 
 	public static void main(String[] args) {
 		try {
-			String base64Code = encodeBase64File("D:/1516952602299.jpg");
-			System.out.println(base64Code.replace("\r\n", ""));
-			decoderBase64File(base64Code, "D:/2.tif");
-			toFile(base64Code, "D:\\three.txt");
+			System.out.println(encodeBase64File("D:/测试照片/c652b0ad-9ad3-4ca9-9556-cd44dcf131bf.png").replace("\r\n",""));
+			System.out.println("============");
+			System.out.println(encodeBase64File("D:/测试照片/localFile.png").replace("\r\n",""));
+//			decoderBase64File(base64Code, "D:/2.tif");
+//			toFile(base64Code, "D:\\three.txt");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

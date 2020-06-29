@@ -23,4 +23,8 @@ public final class RedisUtil {
 
 	}
 
+    public static void main(String[] args) {
+        String key = getKey(Redis.STORAGE_SESSION_ID_PREFIX, "test","");
+    }
+
 }

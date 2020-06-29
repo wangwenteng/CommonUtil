@@ -30,23 +30,23 @@ public class BreakFile {
 		
 		try {
 			FileReader read = new FileReader(
-					"E:/backup/backup1_3.log");
+					"E:/backup/backup1/catalina_42.log");
 			BufferedReader br = new BufferedReader(read);
 			String row;
 
 			int rownum = 1;
 
 			int fileNo = 1;
-			FileUtils.makefile("E:/backup/backup1/backup1_" + fileNo + ".log");
-			FileWriter fw = new FileWriter("E:/backup/backup1/backup1_" + fileNo + ".log");
+			FileUtils.makefile("E:/backup/backup1/catalina_42_" + fileNo + ".log");
+			FileWriter fw = new FileWriter("E:/backup/backup1/catalina_42_" + fileNo + ".log");
 			while ((row = br.readLine()) != null) {
 				rownum++;
 				fw.append(row + "\r\n");
 
-				if ((rownum / 54183) > (fileNo - 1)) {
+				if ((rownum / 5418) > (fileNo - 1)) {
 					fw.close();
 					fileNo++;
-					fw = new FileWriter("E:/backup/backup1/backup1_" + fileNo + ".log");
+					fw = new FileWriter("E:/backup/backup1/catalina_42_" + fileNo + ".log");
 				}
 			}
 			fw.close();
