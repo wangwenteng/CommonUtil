@@ -60,7 +60,7 @@
         <dependency>
             <groupId>com.github.junrar</groupId>
             <artifactId>junrar</artifactId>
-            <version>0.7</version>
+            <version>7.4.1</version>
         </dependency>
         <!-- 7Z解压包 -->
         <dependency>
@@ -100,7 +100,7 @@
         <dependency>
             <groupId>com.github.junrar</groupId>
             <artifactId>junrar</artifactId>
-            <version>0.7</version>
+            <version>7.4.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/jaxen/jaxen -->
         <dependency>
